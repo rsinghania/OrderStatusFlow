@@ -1,0 +1,30 @@
+		<tbody class="orderTable" ng:repeat="orderItems in orderData track by $index" >
+					
+					******{{$index}}*****------
+					********{{orderItems}}******
+						<tr id="orderNumber_{{orderItems[$index].orderId}}" class="allOrders">
+							<td id="orderPlaced" scope="row">
+								<button type="button" ng-class="getOrderStatus()"
+									ng-click="orderButtonClicked()">
+									<table class="ng-scope">
+										<tbody>
+											<tr>
+												<th>Item Name</th>
+												<th>Quantity</th>
+											</tr>
+											<tr ng:repeat="orderItems in items[$index].items">
+												<td>{{item.itemName}}</td>
+												<td>{{item.itemQuantity}}</td>
+											</tr>
+
+										</tbody>
+									</table>
+								</button>
+
+							</td>
+							<td id="preparing"></td>
+							<td id="prepared"></td>
+							<td id="delivered" class="deliveryPending"></td>
+						</tr>
+
+					</tbody>

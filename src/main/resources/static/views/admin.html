@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin-Menu</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+</head>
+<body style="margin: 1%;">
+	<div class="card text-center">
+		<div class="card-header">Admin</div>
+		<div class="card-body">
+			<div class="alert alert-default">
+				<canvas id="line-chart" height="70"></canvas>
+			</div>
+			<div class="alert alert-default">
+				<canvas id="item-sales-chart" height="70"></canvas>
+			</div>
+			<div class="alert alert-default">
+				<canvas id="sales-chart" height="70"></canvas>
+			</div>
+		</div>
+		<div class="card-footer text-muted">Haldiram Sector 24</div>
+	</div>
+</body>
+<script type="text/javascript">
+	new Chart(document.getElementById("item-sales-chart"), {
+		type : 'horizontalBar',
+		data : {
+			labels : [ "Masala Dosa", "Paneer Dosa", "Veg Pizza",
+					"Chole Bhature", "Raj Cachori" ],
+			datasets : [ {
+				label : "Total Sold",
+				backgroundColor : [ "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9",
+						"#c45850" ],
+				data : [ 300, 200, 150, 125, 130 ]
+			} ]
+		},
+		options : {
+			legend : {
+				display : false
+			},
+			title : {
+				display : true,
+				text : 'Today Latest Sales Item Count'
+			}
+		}
+	});
+
+	new Chart(document.getElementById("line-chart"), {
+		type : 'line',
+		data : {
+			labels : [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+			datasets : [
+					{
+						data : [ 86, 114, 106, 106, 107, 111, 133, 221, 783,
+								2478 ],
+						label : "Masala Dosa",
+						borderColor : "#3e95cd",
+						fill : false
+					},
+					{
+						data : [ 282, 350, 1600, 502, 635, 809, 947, 1402,
+								3700, 5267 ],
+						label : "Paneer Dosa",
+						borderColor : "#8e5ea2",
+						fill : false
+					},
+					{
+						data : [ 168, 170, 178, 190, 2200, 276, 408, 547, 675,
+								734 ],
+						label : "Chole Bhature",
+						borderColor : "#3cba9f",
+						fill : false
+					}, {
+						data : [ 40, 20, 10, 500, 24, 38, 74, 167, 508, 784 ],
+						label : "Veg Pizza",
+						borderColor : "#e8c3b9",
+						fill : false
+					}, {
+						data : [ 6, 3, 2, 2, 7, 26, 300, 172, 312, 433 ],
+						label : "Raj Cachori",
+						borderColor : "#c45850",
+						fill : false
+					} ]
+		},
+		options : {
+			title : {
+				display : true,
+				text : 'Today Item Sales Trend'
+			}
+		}
+	});
+
+	new Chart(document.getElementById("sales-chart"), {
+		type : 'line',
+		data : {
+			labels : [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+			datasets : [
+					{
+						data : [ 100, 200, 300, 350, 375, 600, 800, 1200, 1500,
+								2200 ],
+						label : "Today (Friday) Sales",
+						borderColor : "#3e95cd",
+						fill : false
+					},
+					{
+						data : [ 50, 100, 150, 200, 300, 1100, 1200, 1250,
+								1350, 1550 ],
+						label : "Yesteday (Thrusday) Sales",
+						borderColor : "#8e5ea2",
+						fill : false
+					} ]
+		},
+		options : {
+			title : {
+				display : true,
+				text : 'Today Revenue Trend'
+			}
+		}
+	});
+</script>
+</html>
