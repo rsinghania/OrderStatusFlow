@@ -1,4 +1,4 @@
-<!-- <tr ng-controller="newOrderController" class="allOrders">
+<tr ng-controller="newOrderController"  id="orderNumber_{{newOrderData[0].orderId}}" class="allOrders">
 	<td scope="row" id="order">
 		<button type="button" ng-class="getFavClassIcon()"
 			ng-click="orderButtonClicked()">
@@ -8,7 +8,7 @@
 						<th>Item Name</th>
 						<th>Quantity</th>
 					</tr>
-					<tr ng:repeat="item in orderData[0].items">
+					<tr ng:repeat="item in newOrderData[0].items">
 						<td>{{item.itemName}}</td>
 						<td>{{item.itemQuantity}}</td>
 					</tr>
@@ -22,4 +22,3 @@
 	<td id="prepared"></td>
 	<td id="delivered"></td>
 </tr>
- -->
