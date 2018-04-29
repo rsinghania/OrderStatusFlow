@@ -86,14 +86,22 @@ app.controller('hotelController', function($scope, $resource, $http,
 		var orderDetails={};
 		var orderId=event.attributes.orderid.value;
 		if($rootScope.orderState.length>=1){
-			orderDetails=angular.forEach($rootScope.orderState, function(value, key) {
+			for(var i=0;i<$rootScope.orderState.length;i++)
+			{
+				 value=$rootScope.orderState[i];
 				if(orderId==value.orderId){
 					//order.id=value.orderId;
 					//order.btnStage=value.btnStage;
-					return value;
+					orderDetails=value;
+					return orderDetails;
 				}
-				});
-			return orderDetails[0];
+			}
+			if(orderDetails.length==0 ||orderDetails.length ==undefined ){
+				order.orderId=event.attributes.orderid.value;
+				order.btnStage=0;
+				return order;
+			}
+			return orderDetails;
 		}else{
 			order.orderId=event.attributes.orderid.value;
 			order.btnStage=0;
