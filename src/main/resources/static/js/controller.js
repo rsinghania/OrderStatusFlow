@@ -6,7 +6,16 @@ app.controller('rolesController', function($scope) {
 	$scope.headingTitle = "Roles List";
 });
 
-app.controller('hotelController', function($scope, $resource, $http) {
+app.controller('newOrderController', function($scope,$rootScope) {
+
+	$rootScope.newOrderRecv = function(data){
+			$scope.orderData=data;
+			console.log('neworder');
+	};
+	
+});
+
+app.controller('hotelController', function($scope, $resource, $http,$rootScope) {
 	$scope.headingTitle = "hotel List";
 
 	$scope.btnStage = 0;
@@ -20,7 +29,11 @@ app.controller('hotelController', function($scope, $resource, $http) {
 	    $.get('/latestOrders', function(data) {
 	        //alert(data);  // process results here
 	    	$scope.orderData=data;
-	        //setTimeout($scope.doPoll,30000);
+	    	
+	        setTimeout($scope.doPoll,10000);
+	        
+	        $rootScope.newOrderRecv(data);
+		    $scope.totalOrders();
 	    });
 	};
 	

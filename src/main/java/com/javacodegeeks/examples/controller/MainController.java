@@ -3,6 +3,7 @@ package com.javacodegeeks.examples.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.jms.JMSException;
 
@@ -31,6 +32,10 @@ public class MainController {
 			// Convert JSON string to Object
 			String jsonInString = "{\"orderId\":\"123124\",\"items\":[{\"itemName\":\"Developer\",\"itemQuantity\":\"2\"},{\"itemName\":\"Developer1\",\"itemQuantity\":\"1\"}]}";
 			order = mapper.readValue(jsonInString, Order.class);
+			Random r = new Random(); 
+			int x = r.nextInt(1000);
+			order.setOrderId(x);
+			
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {

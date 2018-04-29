@@ -13,6 +13,10 @@ app.config(function($routeProvider){
             templateUrl: '/views/hotel.html',
             controller: 'hotelController'
         })
+        .when('/newOrder',{
+            //templateUrl: '/views/newOrder.html',
+            controller: 'newOrderController'
+        })
         .otherwise(
             { redirectTo: '/'}
         );

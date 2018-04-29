@@ -56,8 +56,8 @@
 								</button></th>
 						</tr>
 					</thead>
-					<tbody class="orderTable" >
-						<tr id="orderNumber_{{orderData[0].orderId}}" class="allOrders">
+					<tbody class="orderTable">
+						<tr ng-controller="newOrderController" id="orderNumber_{{orderData[0].orderId}}" class="allOrders">
 							<td id="orderPlaced" scope="row">
 								<button type="button" ng-class="getOrderStatus()"
 									ng-click="orderButtonClicked()">
@@ -81,7 +81,6 @@
 							<td id="prepared"></td>
 							<td id="delivered" class="deliveryPending"></td>
 						</tr>
-
 					</tbody>
 				</table>
 			</div>

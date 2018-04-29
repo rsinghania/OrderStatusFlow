@@ -9,12 +9,13 @@ public class Order implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String orderId;
+	private long orderId;
 	private List<Item> items;
-	public String getOrderId() {
+	
+	public long getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(String orderId) {
+	public void setOrderId(long orderId) {
 		this.orderId = orderId;
 	}
 	public List<Item> getItems() {
